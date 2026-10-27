@@ -1,0 +1,12 @@
+name = "aarve-api"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+preview_urls = false
+
+[[d1_databases]]
+binding = "DB"
+database_name = "aarve"
+database_id = "619f94a3-b2b7-4539-9004-53c46eb4f935"
+
+[vars]
+ALLOWED_ORIGINS = "https://amdapex55-commits.github.io"

@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#E5D7C4">
+<title>AARVE MAG/01 | Magnetic pull-lift wallet in full-grain leather</title>
+<meta name="description" content="MAG/01 by AARVE. A magnetic pull-lift wallet in full-grain leather, 6.8 mm thin, with a concealed MagSafe-compatible magnet ring. Cash on delivery across Pakistan.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AARVE MAG/01. Leather. Magnet. Nothing more.">
+<meta property="og:description" content="A magnetic pull-lift wallet in full-grain leather. Cash on delivery across Pakistan.">
+<meta property="og:image" content="assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preload" href="fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="assets/img/hero.webp" type="image/webp">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="styles.css?v=2">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<!-- the AA monogram and seal, reused as small marks -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="aa" viewBox="0 0 100 72" overflow="visible">
+      <path d="M46 69 L70 9 L94 69" fill="none" stroke="currentColor" stroke-width="13" stroke-linejoin="miter" opacity=".78"/>
+      <path d="M6 69 L30 9 L54 69" fill="none" stroke="currentColor" stroke-width="13" stroke-linejoin="miter"/>
+    </symbol>
+    <symbol id="seal" viewBox="0 0 200 200" overflow="visible">
+      <circle cx="100" cy="100" r="96" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width=".8"/>
+      <defs><path id="sealTop" d="M26 100 A74 74 0 0 1 174 100"/><path id="sealBot" d="M30 108 A72 72 0 0 0 170 108"/></defs>
+      <text font-family="Cormorant Garamond,serif" font-weight="600" font-size="22" letter-spacing="9" fill="currentColor"><textPath href="#sealTop" startOffset="50%" text-anchor="middle">AARVE</textPath></text>
+      <text font-family="Hanken Grotesk,sans-serif" font-size="9" letter-spacing="4.6" fill="currentColor"><textPath href="#sealBot" startOffset="50%" text-anchor="middle">CARRY WITH INTENT</textPath></text>
+      <use href="#aa" x="62" y="68" width="76" height="55"/>
+    </symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#order">Skip to order</a>
+<div id="thread" aria-hidden="true"></div>
+
+<div class="banner" id="offlineBar" role="status" hidden><span class="dot"></span><span id="offlineText">You are offline. You can still browse. Orders are saved and sent when you are back online.</span></div>
+<div class="banner pending" id="pendingBar" role="status" hidden><span class="dot"></span><span id="pendingText"></span><button type="button" id="pendingRetry" class="link">Send now</button></div>
+
+<header class="top" id="top">
+  <a class="brand" href="#hero" aria-label="AARVE, back to the top">
+    <svg class="mark" viewBox="0 0 100 72" aria-hidden="true"><use href="#aa"/></svg>
+    <span class="word">AARVE</span>
+  </a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#pull">The pull</a><a href="#build">The build</a><a href="#details">Details</a><a href="#specs">Numbers</a><a href="#faq">Questions</a>
+  </nav>
+  <div class="top-actions">
+    <button class="link-btn" type="button" data-open="track">Track order</button>
+    <button class="cart-btn" type="button" id="cartBtn" aria-label="Open cart">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a1.5 1.5 0 0 1-1.5 1.3H7.7a1.5 1.5 0 0 1-1.5-1.3L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+      <span class="count" id="cartCount" data-n="0">0</span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+  <div class="hero-media" id="heroMedia">
+    <picture>
+      <source type="image/webp" srcset="assets/img/hero.webp">
+      <img src="assets/img/hero.jpg" width="1122" height="800" alt="The AARVE MAG/01 wallet in black full-grain leather with an oxblood lining and pull-tab, standing on dark marble" fetchpriority="high" decoding="async">
+    </picture>
+    <span class="cap">Product rendering</span>
+  </div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="kicker light"><span class="rule"></span>AARVE MAG/01 &middot; Magnetic pull-lift wallet</p>
+      <h1 class="h1"><span class="ln">Leather.</span><span class="ln">Magnet.</span><span class="ln em">Nothing more.</span></h1>
+      <p class="lede">A wallet for the back of your phone. Pull the wide leather tab and your cards lift into reach. Parked, it lies completely flush. 6.8 mm thin.</p>
+
+      <div class="buy" id="buy">
+        <div class="price-row">
+          <div class="price" id="priceMain" aria-live="polite"><span class="skel on-dark w-120 h-44"></span></div>
+          <div class="price-note">
+            <span id="stockNote"><span class="skel on-dark w-90 h-14"></span></span>
+            <span class="sep"></span>
+            <span>Pay on delivery</span>
+          </div>
+        </div>
+        <div class="swatches" id="swatches" role="radiogroup" aria-label="Colour" hidden></div>
+        <div class="cta-row">
+          <button class="btn primary light" type="button" id="addBtn" disabled><span class="lbl">Add to cart</span><span class="arrow" aria-hidden="true"></span></button>
+          <button class="btn ghost light" type="button" id="buyNowBtn" disabled>Buy now</button>
+        </div>
+        <div class="cfg-error" id="cfgError" role="alert" hidden>
+          <span>We could not load the live price and stock.</span>
+          <button type="button" class="link" id="cfgRetry">Try again</button>
+        </div>
+        <p class="announce" id="announce" hidden></p>
+        <ul class="assure" aria-label="Delivery and payment">
+          <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6.5 9.5v5M17.5 9.5v5"/></svg><span>Cash on delivery</span></li>
+          <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg><span id="deliveryText">Delivered in 2 to 5 working days</span></li>
+          <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span>Made in Lahore</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Full-grain leather</span><i></i><span>Concealed magnet</span><i></i><span>Nothing more</span><i></i><span>4 cards</span><i></i><span>6.8 mm</span><i></i><span>Made in Lahore</span><i></i>
+    <span>Full-grain leather</span><i></i><span>Concealed magnet</span><i></i><span>Nothing more</span><i></i><span>4 cards</span><i></i><span>6.8 mm</span><i></i><span>Made in Lahore</span><i></i>
+  </div>
+</div>
+
+<!-- ================= 01 THE PULL-LIFT ================= -->
+<section class="pull" id="pull">
+  <div class="wrap pull-grid">
+    <div class="pull-copy">
+      <p class="kicker"><span class="rule"></span>01 &middot; The pull-lift</p>
+      <h2 class="h2">Pull the tab.<br><em>Cards lift.</em></h2>
+      <ol class="steps">
+        <li><span class="n">01</span><div><h3>Parked</h3><p>The wide leather tab lies completely flush against the wallet. Nothing catches in a pocket.</p></div></li>
+        <li><span class="n">02</span><div><h3>Pulled</h3><p>Slide the tab sideways and the stacked cards lift into reach. Take the one you need.</p></div></li>
+      </ol>
+      <p class="muted small">Drag the slider to see both.</p>
+    </div>
+    <figure class="cmp-wrap">
+      <div class="cmp" id="cmp" style="--x:.5" role="group" aria-label="Compare the tab parked and pulled">
+        <img class="a" src="assets/img/rest.jpg" width="412" height="352" alt="The tab parked flush against the wallet" loading="lazy" decoding="async">
+        <img class="b" src="assets/img/pull.jpg" width="400" height="352" alt="The tab pulled sideways with the cards lifted" loading="lazy" decoding="async">
+        <span class="tag l">Parked</span><span class="tag r">Pulled</span>
+        <div class="knob" aria-hidden="true"><i></i></div>
+        <input type="range" min="0" max="100" value="50" step="1" aria-label="Slide to compare parked and pulled">
+      </div>
+      <figcaption>Product rendering</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= 02 THE BUILD ================= -->
+<section class="build" id="build">
+  <div class="wrap build-grid">
+    <div class="build-copy">
+      <p class="kicker light"><span class="rule"></span>02 &middot; The build</p>
+      <h2 class="h2">Four layers.<br><em>All leather.</em></h2>
+      <ol class="layers" id="layerList">
+        <li data-l="0" class="on"><b>01</b><div><h3>Full-grain leather outer</h3><p>Obsidian black. The face you see and touch. It softens and darkens with use.</p></div></li>
+        <li data-l="1"><b>02</b><div><h3>Full-grain leather lining</h3><p>Oxblood red. It shows at the pocket edge and on the tab.</p></div></li>
+        <li data-l="2"><b>03</b><div><h3>Concealed magnet ring</h3><p>Sealed inside the leather, MagSafe compatible. No visible plastic or metal.</p></div></li>
+        <li data-l="3"><b>04</b><div><h3>Full-grain leather inner</h3><p>Oxblood again, so the inside of the pocket feels as good as the outside.</p></div></li>
+      </ol>
+    </div>
+    <figure class="layers-fig">
+      <div class="layers-img" id="layersImg" data-on="0">
+        <img src="assets/img/layers.jpg" width="936" height="316" alt="The four layers of the wallet laid out in order: black outer, red lining, magnet layer, red inner" loading="lazy" decoding="async">
+        <button type="button" class="mk" style="--x:15%" data-l="0" aria-label="Layer 1"><b>1</b></button>
+        <button type="button" class="mk" style="--x:37%" data-l="1" aria-label="Layer 2"><b>2</b></button>
+        <button type="button" class="mk" style="--x:59%" data-l="2" aria-label="Layer 3"><b>3</b></button>
+        <button type="button" class="mk" style="--x:81%" data-l="3" aria-label="Layer 4"><b>4</b></button>
+      </div>
+      <figcaption>Product rendering</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= 03 DETAILS ================= -->
+<section class="details" id="details">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker"><span class="rule"></span>03 &middot; The details</p>
+      <h2 class="h2">Small things<br><em>you will notice.</em></h2>
+    </div>
+    <div class="det-feature">
+      <figure class="plate-fig wide"><img src="assets/img/macro.jpg" width="848" height="372" alt="Close up of the sculpted quick-card pocket with its diagonal edge and red stitched lining" loading="lazy" decoding="async"><figcaption>Product rendering</figcaption></figure>
+      <div class="det-text">
+        <h3>Sculpted quick-card pocket</h3>
+        <p>A diagonal edge, cut to echo the AA monogram. One card always sits in reach, the other three wait behind it.</p>
+        <h3>Blind-debossed monogram</h3>
+        <p>The AA is pressed into the leather. No print, no foil. You feel it before you see it.</p>
+        <h3>Red lining, stitched edges</h3>
+        <p>Oxblood leather lines the pocket and the tab, and edges are stitched, not glued.</p>
+      </div>
+    </div>
+    <div class="views">
+      <figure class="plate-fig"><img src="assets/img/front.jpg" width="452" height="648" alt="Front view" loading="lazy" decoding="async"><figcaption>Front</figcaption></figure>
+      <figure class="plate-fig"><img src="assets/img/rear.jpg" width="456" height="648" alt="Rear view, with the circle of the concealed magnet ring stitched into the leather" loading="lazy" decoding="async"><figcaption>Rear, with the magnet ring beneath</figcaption></figure>
+      <figure class="plate-fig narrow"><img src="assets/img/side.jpg" width="150" height="648" alt="Side view showing the slim 6.8 millimetre profile" loading="lazy" decoding="async"><figcaption>Side, 6.8 mm</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 04 NUMBERS ================= -->
+<section class="specs" id="specs">
+  <div class="wrap">
+    <p class="kicker light"><span class="rule"></span>04 &middot; The numbers</p>
+    <div class="big-num" id="bigNum" aria-label="94 by 65 by 6.8 millimetres">
+      <span class="n" data-to="94">94</span><span class="x">&times;</span><span class="n" data-to="65">65</span><span class="x">&times;</span><span class="n" data-to="6.8" data-dec="1">6.8</span><small>mm</small>
+    </div>
+    <dl class="spec-list">
+      <div><dt>Holds</dt><dd>4 cards: 1 quick access and 3 main</dd></div>
+      <div><dt>Leather</dt><dd>Full-grain. Obsidian outside, oxblood inside</dd></div>
+      <div><dt>Magnet</dt><dd>Concealed ring, MagSafe compatible. No visible plastic or metal</dd></div>
+      <div><dt>Works with</dt><dd>iPhone 12 and newer, or any phone with a MagSafe case</dd></div>
+      <div><dt>Made</dt><dd>By hand in Lahore, Pakistan</dd></div>
+    </dl>
+    <p class="fine">A MagSafe ring only grips through a case that is MagSafe compatible, or thin enough for the magnet to reach. Slide it off before wireless charging.</p>
+  </div>
+</section>
+
+<!-- ================= 05 FAQ ================= -->
+<section class="faq" id="faq">
+  <div class="wrap faq-grid">
+    <div class="sec-head">
+      <p class="kicker"><span class="rule"></span>05 &middot; Questions</p>
+      <h2 class="h2">Before you<br><em>order.</em></h2>
+      <p class="muted">Something else? <button class="link" type="button" data-open="contact">Send us a message</button>.</p>
+    </div>
+    <div class="acc" id="acc">
+      <details><summary>Which phones does it work with?<i></i></summary><div><p>It has a concealed MagSafe-compatible magnet ring. That means iPhone 12 and newer, or any phone wearing a MagSafe-compatible case. At 65 mm wide it sits inside the MagSafe area.</p></div></details>
+      <details><summary>How do I pay?<i></i></summary><div><p>Cash on delivery. You pay the rider when your order arrives. We confirm every order with you first, on the phone number you give us.</p></div></details>
+      <details><summary>How long does delivery take?<i></i></summary><div><p id="faqDelivery">Orders are delivered in 2 to 5 working days across Pakistan. Delivery is free.</p></div></details>
+      <details><summary>How many cards does it hold?<i></i></summary><div><p>Four: one in the quick-card pocket and three in the main pocket. It is built for the cards you use every day, not for a stack of receipts.</p></div></details>
+      <details><summary>Will it stay on my phone?<i></i></summary><div><p>The magnet ring sits inside the leather. Grip depends on your case. A thick or non-MagSafe case weakens it, so use a MagSafe-compatible case for the best hold.</p></div></details>
+      <details><summary>Can I charge my phone wirelessly with it on?<i></i></summary><div><p>Slide it off first, as with any wallet or card holder. It sits in the charging area and can get in the way.</p></div></details>
+      <details><summary>What if something is wrong with my order?<i></i></summary><div><p>If it arrives damaged or is not what you ordered, message us within 7 days from the contact form and we will make it right.</p></div></details>
+      <details><summary>How do I look after the leather?<i></i></summary><div><p>Wipe it with a dry cloth. Keep it away from heat and standing water. Full-grain leather darkens and softens with use. That is the point.</p></div></details>
+      <details><summary>Do you ship to the UAE or the UK?<i></i></summary><div><p>Not yet. Leave your details at the bottom of the page and we will message you when we do.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ORDER ================= -->
+<section class="order" id="order">
+  <div class="order-bg" aria-hidden="true"><svg viewBox="0 0 100 72"><use href="#aa"/></svg></div>
+  <div class="wrap order-grid">
+    <div class="order-copy">
+      <svg class="seal" viewBox="0 0 200 200" aria-hidden="true"><use href="#seal"/></svg>
+      <h2 class="h1 small"><span class="ln">Carry with</span><span class="ln em">intent.</span></h2>
+      <p class="lede">MAG/01 in black full-grain leather with an oxblood lining. Cash on delivery across Pakistan.</p>
+      <div class="price-row">
+        <div class="price" data-price><span class="skel w-120 h-44 on-dark"></span></div>
+        <div class="price-note"><span data-stock></span></div>
+      </div>
+      <div class="cta-row">
+        <button class="btn primary light" type="button" data-add disabled><span class="lbl">Add to cart</span><span class="arrow" aria-hidden="true"></span></button>
+        <button class="btn ghost light" type="button" data-buynow disabled>Buy now</button>
+      </div>
+    </div>
+    <form class="waitlist" id="waitForm" novalidate>
+      <h3>UAE and UK</h3>
+      <p>We are not shipping there yet. Leave your email or phone and we will tell you first.</p>
+      <label class="fld" data-f="contact"><span>Email or phone</span><input name="contact" autocomplete="email" inputmode="email" placeholder="you@example.com" required maxlength="120"><em class="err" role="alert"></em></label>
+      <label class="fld"><span>Country</span>
+        <select name="body"><option>United Arab Emirates</option><option>United Kingdom</option><option>Somewhere else</option></select>
+      </label>
+      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn ghost light" type="submit"><span class="lbl">Tell me first</span></button>
+      <p class="form-msg" id="waitMsg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <svg class="mark" viewBox="0 0 100 72" aria-hidden="true"><use href="#aa"/></svg>
+      <div><b>AARVE</b><span>Carry with intent</span></div>
+    </div>
+    <div class="foot-links">
+      <button type="button" class="link-btn" data-open="track">Track an order</button>
+      <button type="button" class="link-btn" data-open="contact">Contact</button>
+      <a href="#faq">Questions</a>
+    </div>
+    <p class="copy">&copy; 2026 Aarve. Made in Lahore.</p>
+  </div>
+</footer>
+
+<!-- sticky buy bar (phones) -->
+<div class="sticky-buy" id="stickyBuy" aria-hidden="true">
+  <div><b>MAG/01</b><span data-price-short></span></div>
+  <button class="btn primary" type="button" data-add disabled tabindex="-1"><span class="lbl">Add to cart</span></button>
+</div>
+
+<!-- ================= CART / CHECKOUT DRAWER ================= -->
+<div class="veil" id="veil" hidden></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" aria-hidden="true" inert>
+  <header class="dr-head">
+    <button type="button" class="icon-btn" id="drawerBack" aria-label="Back to cart" hidden><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <h2 id="drawerTitle">Your cart</h2>
+    <button type="button" class="icon-btn" id="drawerClose" aria-label="Close"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </header>
+
+  <div class="dr-body">
+    <!-- view: cart -->
+    <section class="view" data-view="cart">
+      <div class="empty" id="cartEmpty" hidden>
+        <svg class="mark" viewBox="0 0 100 72" aria-hidden="true"><use href="#aa"/></svg>
+        <p>Your cart is empty.</p>
+        <button type="button" class="btn ghost" id="emptyShop">See MAG/01</button>
+      </div>
+      <ul class="lines" id="cartLines"></ul>
+      <div class="note-live" id="cartNote" role="status" aria-live="polite"></div>
+    </section>
+
+    <!-- view: checkout -->
+    <section class="view" data-view="checkout" hidden>
+      <form id="checkoutForm" novalidate autocomplete="on">
+        <div class="co-sum" id="coSum"></div>
+        <h3 class="co-h">Delivery</h3>
+        <label class="fld" data-f="name"><span>Full name</span><input name="name" autocomplete="name" required maxlength="80"><em class="err" role="alert"></em></label>
+        <label class="fld" data-f="phone"><span>Mobile number</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="03XX XXXXXXX" required maxlength="20"><em class="err" role="alert"></em></label>
+        <label class="fld" data-f="city"><span>City</span><input name="city" list="cities" autocomplete="address-level2" required maxlength="60"><em class="err" role="alert"></em></label>
+        <datalist id="cities"><option>Karachi<option>Lahore<option>Islamabad<option>Rawalpindi<option>Faisalabad<option>Multan<option>Peshawar<option>Quetta<option>Hyderabad<option>Gujranwala<option>Sialkot<option>Bahawalpur<option>Sargodha<option>Sukkur<option>Abbottabad<option>Sahiwal<option>Rahim Yar Khan<option>Mardan<option>Gujrat<option>Sheikhupura</datalist>
+        <label class="fld" data-f="address"><span>Full address</span><textarea name="address" rows="3" autocomplete="street-address" placeholder="House, street, area" required maxlength="300"></textarea><em class="err" role="alert"></em></label>
+        <details class="note-toggle"><summary>Add a note for the rider</summary><label class="fld"><span class="sr">Note</span><textarea name="notes" rows="2" maxlength="300" placeholder="Landmark, delivery time, anything useful"></textarea></label></details>
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <h3 class="co-h">Payment</h3>
+        <div class="pay"><span class="radio on"></span><div><b>Cash on delivery</b><span>Pay the rider when it arrives. We confirm your order by phone first.</span></div></div>
+
+        <div class="co-total" id="coTotal"></div>
+        <button class="btn primary block" type="submit" id="placeBtn"><span class="lbl">Place order</span><span class="spin" aria-hidden="true"></span></button>
+        <p class="form-msg" id="coMsg" role="alert"></p>
+        <p class="fine center">By placing this order you agree to be contacted on this number to confirm delivery.</p>
+      </form>
+    </section>
+
+    <!-- view: done -->
+    <section class="view done" data-view="done" hidden>
+      <div class="tick" aria-hidden="true"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="36" fill="none" stroke="currentColor" stroke-width="2"/><path d="M24 41l12 12 21-24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h3 id="doneTitle">Order placed</h3>
+      <p class="order-no" id="doneNo"></p>
+      <p class="muted" id="doneText"></p>
+      <div class="done-sum" id="doneSum"></div>
+      <div class="done-actions">
+        <button type="button" class="btn ghost" id="doneCopy">Copy order number</button>
+        <button type="button" class="btn primary" id="doneTrack">Track this order</button>
+      </div>
+    </section>
+  </div>
+
+  <footer class="dr-foot" id="cartFoot">
+    <div class="tot"><span>Subtotal</span><b id="cartSub"></b></div>
+    <p class="muted small" id="cartShipNote"></p>
+    <button type="button" class="btn primary block" id="toCheckout" disabled><span class="lbl">Checkout</span><span class="arrow" aria-hidden="true"></span></button>
+  </footer>
+</aside>
+
+<!-- ================= TRACK ================= -->
+<div class="modal" id="trackModal" role="dialog" aria-modal="true" aria-labelledby="trackTitle" aria-hidden="true" inert>
+  <div class="sheet">
+    <header class="dr-head"><h2 id="trackTitle">Track your order</h2><button type="button" class="icon-btn" data-close aria-label="Close"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg></button></header>
+    <form id="trackForm" novalidate>
+      <label class="fld" data-f="number"><span>Order number</span><input name="number" placeholder="AV-1001" autocapitalize="characters" required maxlength="20"><em class="err" role="alert"></em></label>
+      <label class="fld" data-f="phone"><span>Phone you ordered with</span><input name="phone" type="tel" inputmode="tel" placeholder="03XX XXXXXXX" required maxlength="20"><em class="err" role="alert"></em></label>
+      <button class="btn primary block" type="submit"><span class="lbl">Find my order</span><span class="spin" aria-hidden="true"></span></button>
+      <p class="form-msg" id="trackMsg" role="alert"></p>
+    </form>
+    <div class="track-out" id="trackOut"></div>
+  </div>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactTitle" aria-hidden="true" inert>
+  <div class="sheet">
+    <header class="dr-head"><h2 id="contactTitle">Send us a message</h2><button type="button" class="icon-btn" data-close aria-label="Close"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg></button></header>
+    <form id="contactForm" novalidate>
+      <label class="fld" data-f="name"><span>Your name</span><input name="name" autocomplete="name" maxlength="80"><em class="err" role="alert"></em></label>
+      <label class="fld" data-f="contact"><span>Email or phone</span><input name="contact" autocomplete="email" required maxlength="120"><em class="err" role="alert"></em></label>
+      <label class="fld" data-f="body"><span>Message</span><textarea name="body" rows="4" required maxlength="1000"></textarea><em class="err" role="alert"></em></label>
+      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn primary block" type="submit"><span class="lbl">Send</span><span class="spin" aria-hidden="true"></span></button>
+      <p class="form-msg" id="contactMsg" role="alert"></p>
+    </form>
+  </div>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite" aria-atomic="false"></div>
+
+<script src="config.js"></script>
+<script src="app.js?v=2" defer></script>
+</body>
+</html>

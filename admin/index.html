@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0b0907">
+<title>AARVE Orders</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../fonts/fonts.css">
+<link rel="stylesheet" href="admin.css?v=1">
+</head>
+<body>
+<div class="login" id="login">
+  <form id="loginForm" novalidate>
+    <svg class="mark" viewBox="0 0 100 72" aria-hidden="true"><path d="M46 69 L70 9 L94 69" fill="none" stroke="currentColor" stroke-width="13" opacity=".78"/><path d="M6 69 L30 9 L54 69" fill="none" stroke="currentColor" stroke-width="13"/></svg>
+    <h1>AARVE orders</h1>
+    <label>Password<input type="password" name="password" autocomplete="current-password" required autofocus></label>
+    <button type="submit" class="btn"><span class="lbl">Sign in</span><span class="spin"></span></button>
+    <p class="msg" id="loginMsg" role="alert"></p>
+  </form>
+</div>
+
+<div id="app" hidden>
+  <header class="bar">
+    <div class="brand"><svg class="mark" viewBox="0 0 100 72" aria-hidden="true"><path d="M46 69 L70 9 L94 69" fill="none" stroke="currentColor" stroke-width="13" opacity=".78"/><path d="M6 69 L30 9 L54 69" fill="none" stroke="currentColor" stroke-width="13"/></svg><b>AARVE</b></div>
+    <nav class="tabs" id="tabs" role="tablist">
+      <button role="tab" data-tab="orders" aria-selected="true">Orders <i class="pill" id="tabNew" hidden></i></button>
+      <button role="tab" data-tab="settings" aria-selected="false">Stock &amp; price</button>
+      <button role="tab" data-tab="messages" aria-selected="false">Messages <i class="pill" id="tabMsg" hidden></i></button>
+    </nav>
+    <div class="bar-r">
+      <span class="live" id="live" title="Connection"><i></i><span id="liveText">Live</span></span>
+      <button class="ghost sm" id="exportBtn" type="button">Export CSV</button>
+      <button class="ghost sm" id="logoutBtn" type="button">Sign out</button>
+    </div>
+  </header>
+
+  <div class="banner" id="netBanner" hidden></div>
+
+  <main>
+    <section id="tab-orders">
+      <div class="stats" id="stats"></div>
+      <div class="filters">
+        <div class="chips" id="chips" role="tablist"></div>
+        <label class="search"><span class="sr">Search orders</span><input id="q" type="search" placeholder="Search name, phone, order number, city" autocomplete="off"></label>
+      </div>
+      <div class="list" id="list"></div>
+      <div class="more"><button class="ghost" id="moreBtn" type="button" hidden>Load more</button></div>
+    </section>
+
+    <section id="tab-settings" hidden>
+      <form id="settingsForm" class="card" novalidate>
+        <h2>Product and price</h2>
+        <div class="grid2">
+          <label>Product name<input name="product_name" maxlength="80"><em class="err"></em></label>
+          <label>Price (Rs)<input name="price" inputmode="numeric"><em class="err"></em></label>
+          <label>Delivery fee (Rs, 0 is free)<input name="shipping_fee" inputmode="numeric"><em class="err"></em></label>
+          <label>Max per order<input name="max_qty" inputmode="numeric"><em class="err"></em></label>
+          <label class="span2">Announcement under the buy button<input name="announcement" maxlength="140"></label>
+          <label class="span2">Delivery time text<input name="delivery_text" maxlength="80"></label>
+        </div>
+        <h2>Colours and stock</h2>
+        <div id="colourRows" class="colours"></div>
+        <button class="ghost sm" type="button" id="addColour">Add a colour</button>
+        <p class="hint">Stock goes down by itself when an order is placed and comes back if an order is cancelled. A colour with stock 0 shows as sold out on the site.</p>
+        <div class="actions"><button class="btn" type="submit"><span class="lbl">Save changes</span><span class="spin"></span></button><span class="msg" id="settingsMsg" role="status"></span></div>
+      </form>
+    </section>
+
+    <section id="tab-messages" hidden>
+      <div class="list" id="msgList"></div>
+    </section>
+  </main>
+
+  <div class="veil" id="veil" hidden></div>
+  <aside class="panel" id="panel" aria-hidden="true" inert>
+    <header><button class="ghost sm" id="panelClose" type="button" aria-label="Close order">Close</button><b id="panelTitle"></b><span id="panelBadge"></span></header>
+    <div class="panel-body" id="panelBody"></div>
+  </aside>
+</div>
+<div id="slip" class="slip" aria-hidden="true"></div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<script src="../config.js"></script>
+<script src="admin.js?v=1"></script>
+</body>
+</html>
