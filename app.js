@@ -305,7 +305,7 @@ $('#cartBtn').addEventListener('click', () => openDrawer('cart'));
 $('#emptyShop').addEventListener('click', () => { hideOverlay(); location.hash = '#hero'; });
 $('#drawerBack').addEventListener('click', () => setView('cart'));
 $('#toCheckout').addEventListener('click', () => { if (!store.cart.lines.length) return; track('InitiateCheckout', { value: totals().total, currency: 'PKR' }); setView('checkout'); });
-function addAndOpen() { if (addToCart(1)) { toast('Added to your cart'); openDrawer('cart'); } }
+function addAndOpen() { if (addToCart(1)) openDrawer('cart'); }
 $$('[data-add],#addBtn').forEach((b) => b.addEventListener('click', addAndOpen));
 $$('[data-buynow],#buyNowBtn').forEach((b) => b.addEventListener('click', () => {
   if (!store.cart.lines.length && !addToCart(1)) return;
@@ -401,7 +401,9 @@ let flushing = false, flushTimer = null;
 const queue = () => ls.get(Q, []);
 function enqueue(payload) {
   const q = queue();
-  if (!q.some((x) => x.idem === payload.idem)) q.push({ idem: payload.idem, payload, tries: 0, next: Date.now() + 2500, t: Date.now(), d: { name: payload.name, phone: payload.phone } });
+  const ex = q.find((x) => x.idem === payload.idem);
+  if (ex) { ex.payload = payload; ex.d = { name: payload.name, phone: payload.phone }; } // same order, latest details win
+  else q.push({ idem: payload.idem, payload, tries: 0, next: Date.now() + 2500, t: Date.now(), d: { name: payload.name, phone: payload.phone } });
   ls.set(Q, q);
   renderPending(); scheduleFlush();
 }
@@ -649,7 +651,14 @@ $$('.acc details').forEach((d) => {
 
 /* ---------- boot ---------- */
 if ('serviceWorker' in navigator && location.protocol.startsWith('http') && !/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) {
+  const had = !!navigator.serviceWorker.controller;
   addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+  // a new version took over: refresh once so nobody sits on an old page
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (!had || sessionStorage.getItem('aarve.reloaded') || openOverlay) return;
+    try { sessionStorage.setItem('aarve.reloaded', '1'); } catch {}
+    location.reload();
+  });
 }
 loadPixels();
 renderBuy(); renderCart(); renderPending(); netState();

@@ -1,5 +1,5 @@
 // Offline shell. The API is never cached here: the page handles it, with its own retries and queue.
-const V = 'aarve-v2';
+const V = 'aarve-v3';
 const SHELL = ['./', 'index.html', 'styles.css?v=2', 'app.js?v=2', 'config.js', 'fonts/fonts.css', 'fonts/cormorant.woff2', 'fonts/cormorant-italic.woff2', 'fonts/hanken.woff2', 'assets/favicon.svg', 'manifest.webmanifest', 'assets/img/hero.webp', 'assets/img/hero.jpg', 'assets/img/rest.jpg', 'assets/img/pull.jpg', 'assets/img/layers.jpg', 'assets/img/macro.jpg', 'assets/img/front.jpg', 'assets/img/rear.jpg', 'assets/img/side.jpg', 'assets/img/thumb.jpg'];
 self.addEventListener('install', (e) => { e.waitUntil(caches.open(V).then((c) => Promise.all(SHELL.map((u) => c.add(u).catch(() => {})))).then(() => self.skipWaiting())); });
 self.addEventListener('activate', (e) => { e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== V).map((k) => caches.delete(k)))).then(() => self.clients.claim())); });

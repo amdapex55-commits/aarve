@@ -22,6 +22,10 @@ async function admin(path, opts = {}, token) {
   const r = await fetch(API + path, { ...opts, headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: 'Bearer ' + token } : {}) } }); return r.json();
 }
 const token = (await admin('/api/admin/login', { method: 'POST', body: JSON.stringify({ password: PASS }) })).token;
+{ // start every run with plenty of stock, since the tests place real orders
+  const cfg = await admin('/api/admin/settings', {}, token);
+  await admin('/api/admin/settings', { method: 'PUT', body: JSON.stringify({ settings: cfg.settings, colours: cfg.colours.map((c) => ({ ...c, stock: 100, available: true })) }) }, token);
+}
 const orders = async (q) => (await admin('/api/admin/orders?status=all&limit=100&q=' + encodeURIComponent(q), {}, token)).orders;
 const uniq = () => 'T' + Math.random().toString(36).slice(2, 8);
 

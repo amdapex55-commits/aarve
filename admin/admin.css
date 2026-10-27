@@ -10,10 +10,10 @@ input,select,textarea{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--brass);outline-offset:2px}
 .mark{width:34px;height:24px}
 /* login */
-.login{min-height:100dvh;display:grid;place-items:center;background:var(--dark);color:var(--bone);padding:20px}
+.login{min-height:100vh;min-height:100dvh;display:grid;place-items:center;background:var(--dark);color:var(--bone);padding:20px}
 .login form{width:min(380px,100%);display:grid;gap:16px;text-align:center}
 .login .mark{margin:0 auto;width:60px;height:43px;color:var(--brass-l)}
-.login h1{margin:0 0 8px;font:600 2rem/1 var(--serif);letter-spacing:.3em;text-indent:.3em}
+.login h1{margin:0 0 8px;font:600 2rem/1 var(--serif);letter-spacing:.3em;text-indent:.3em;text-transform:uppercase}
 .login label{display:grid;gap:8px;text-align:left;font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--brass-l)}
 .login input{background:rgba(229,215,196,.08);border:1px solid rgba(229,215,196,.35);color:var(--bone);padding:15px;font-size:16px;border-radius:2px}
 .login input:focus{outline:none;border-color:var(--bone)}
@@ -141,6 +141,8 @@ label input:focus,label textarea:focus,label select:focus{outline:2px solid var(
   .tabs{order:3;width:100%;margin:0;overflow-x:auto}
   .bar-r .ghost{height:34px}
   .stats{grid-template-columns:1fr 1fr}
+  .search{flex:1 1 100%}
+  .search input{width:100%}
   .row{grid-template-columns:1fr auto;gap:4px 12px}
   .row .meta{grid-column:1/-1;display:flex;gap:10px;align-items:center;justify-content:space-between}
   .grid2{grid-template-columns:1fr}
@@ -149,3 +151,5 @@ label input:focus,label textarea:focus,label select:focus{outline:2px solid var(
   .panel{width:100%}
 }
 .row .meta{display:grid;gap:5px;justify-items:start}
+
+*,*::before,*::after{font-variant-numeric:lining-nums!important}
