@@ -550,65 +550,8 @@ document.addEventListener('visibilitychange', () => {
   if (!document.hidden) { flushQueue(); if (store.state !== 'ready') loadConfig(); }
 });
 
-/* ---------- motion ---------- */
-// hero: the picture drifts a little against the pointer (desktop only)
-(() => {
-  const m = $('#heroMedia'); if (!m || reduceMotion || !matchMedia('(pointer:fine)').matches) return;
-  const img = $('img', m);
-  let x = 0, y = 0, cx = 0, cy = 0, raf = 0;
-  const loop = () => {
-    cx += (x - cx) * 0.08; cy += (y - cy) * 0.08;
-    img.style.setProperty('--px', cx.toFixed(2) + 'px'); img.style.setProperty('--py', cy.toFixed(2) + 'px');
-    raf = (Math.abs(x - cx) > 0.05 || Math.abs(y - cy) > 0.05) ? requestAnimationFrame(loop) : 0;
-  };
-  addEventListener('pointermove', (e) => { x = (e.clientX / innerWidth - 0.5) * -22; y = (e.clientY / innerHeight - 0.5) * -14; if (!raf) raf = requestAnimationFrame(loop); }, { passive: true });
-})();
-
-// parked / pulled comparison: drag the slider, or watch it sweep once
-(() => {
-  const c = $('#cmp'); if (!c) return;
-  const r = $('input', c);
-  let touched = false, played = false;
-  const set = (v) => c.style.setProperty('--x', (v / 100).toFixed(3));
-  r.addEventListener('input', () => { touched = true; set(+r.value); });
-  if (reduceMotion) return;
-  new IntersectionObserver((en, o) => {
-    if (!en[0].isIntersecting || played) return;
-    played = true; o.disconnect();
-    const t0 = performance.now(), dur = 2800;
-    const path = (p) => (p < 0.35 ? 50 - 34 * (p / 0.35) : p < 0.75 ? 16 + 68 * ((p - 0.35) / 0.4) : 84 - 34 * ((p - 0.75) / 0.25));
-    const step = (t) => {
-      if (touched || document.hidden) return;
-      const p = Math.min(1, (t - t0) / dur);
-      const v = path(p); set(v); r.value = v;
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }, { threshold: 0.6 }).observe(c);
-})();
-
-// the four layers: tap one, or let them cycle while the picture is on screen
-(() => {
-  const fig = $('#layersImg'), items = $$('#layerList li'), marks = $$('.mk', fig);
-  let cur = 0, manual = false, timer = 0;
-  const show = (k) => { cur = k; fig.dataset.on = k; items.forEach((li) => li.classList.toggle('on', +li.dataset.l === k)); };
-  const pick = (k) => { manual = true; clearInterval(timer); show(k); };
-  items.forEach((li) => li.addEventListener('click', () => pick(+li.dataset.l)));
-  marks.forEach((b) => b.addEventListener('click', () => pick(+b.dataset.l)));
-  if (reduceMotion) return;
-  new IntersectionObserver((en) => {
-    clearInterval(timer);
-    if (en[0].isIntersecting && !manual) timer = setInterval(() => { if (!document.hidden) show((cur + 1) % 4); }, 3200);
-  }, { threshold: 0.5 }).observe(fig);
-})();
-
-// pictures settle in as they arrive (never hidden first)
-if (!reduceMotion) {
-  const io = new IntersectionObserver((en) => en.forEach((x) => { if (x.isIntersecting) { x.target.classList.add('in-view'); io.unobserve(x.target); } }), { threshold: 0.25 });
-  $$('.plate-fig img, .layers-img img').forEach((i) => io.observe(i));
-}
-
-// header, thread, sticky bar, nav highlight: one passive scroll handler
+/* ---------- restrained interface motion ---------- */
+// Header, reading thread, sticky bar and nav highlight share one passive scroll handler.
 (() => {
   const top = $('#top'), thread = $('#thread'), sticky = $('#stickyBuy');
   const heroCta = $('#buy .cta-row'), orderSec = $('#order');
@@ -631,8 +574,7 @@ if (!reduceMotion) {
   update();
 })();
 
-// numbers settle in; FAQ opens smoothly
-new IntersectionObserver((en, o) => { if (en[0].isIntersecting) { $('#bigNum').classList.add('in'); o.disconnect(); } }, { threshold: 0.4 }).observe($('#bigNum'));
+// FAQ motion communicates state; it is disabled by the visitor's reduced-motion setting.
 $$('.acc details').forEach((d) => {
   const sum = $('summary', d), body = $('summary + div', d);
   sum.addEventListener('click', (e) => {

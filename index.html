@@ -19,7 +19,7 @@
 <link rel="preload" href="fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" href="assets/img/hero.webp" type="image/webp">
 <link rel="stylesheet" href="fonts/fonts.css">
-<link rel="stylesheet" href="styles.css?v=2">
+<link rel="stylesheet" href="styles.css?v=3">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -74,7 +74,6 @@
       <source type="image/webp" srcset="assets/img/hero.webp">
       <img src="assets/img/hero.jpg" width="1122" height="800" alt="The AARVE MAG/01 wallet in black full-grain leather with an oxblood lining and pull-tab, standing on dark marble" fetchpriority="high" decoding="async">
     </picture>
-    <span class="cap">Product rendering</span>
   </div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
@@ -111,11 +110,11 @@
   </div>
 </section>
 
-<div class="marquee" aria-hidden="true">
-  <div class="track">
-    <span>Full-grain leather</span><i></i><span>Concealed magnet</span><i></i><span>Nothing more</span><i></i><span>4 cards</span><i></i><span>6.8 mm</span><i></i><span>Made in Lahore</span><i></i>
-    <span>Full-grain leather</span><i></i><span>Concealed magnet</span><i></i><span>Nothing more</span><i></i><span>4 cards</span><i></i><span>6.8 mm</span><i></i><span>Made in Lahore</span><i></i>
-  </div>
+<div class="proof-strip" aria-label="Product highlights">
+  <div><small>Material</small><strong>Full-grain leather</strong></div>
+  <div><small>Profile</small><strong>6.8 mm thin</strong></div>
+  <div><small>Capacity</small><strong>Four cards</strong></div>
+  <div><small>Made</small><strong>By hand in Lahore</strong></div>
 </div>
 
 <!-- ================= 01 THE PULL-LIFT ================= -->
@@ -128,17 +127,14 @@
         <li><span class="n">01</span><div><h3>Parked</h3><p>The wide leather tab lies completely flush against the wallet. Nothing catches in a pocket.</p></div></li>
         <li><span class="n">02</span><div><h3>Pulled</h3><p>Slide the tab sideways and the stacked cards lift into reach. Take the one you need.</p></div></li>
       </ol>
-      <p class="muted small">Drag the slider to see both.</p>
+      <p class="muted small">One quiet movement. No springs, levers or visible hardware.</p>
     </div>
-    <figure class="cmp-wrap">
-      <div class="cmp" id="cmp" style="--x:.5" role="group" aria-label="Compare the tab parked and pulled">
-        <img class="a" src="assets/img/rest.jpg" width="412" height="352" alt="The tab parked flush against the wallet" loading="lazy" decoding="async">
-        <img class="b" src="assets/img/pull.jpg" width="400" height="352" alt="The tab pulled sideways with the cards lifted" loading="lazy" decoding="async">
-        <span class="tag l">Parked</span><span class="tag r">Pulled</span>
-        <div class="knob" aria-hidden="true"><i></i></div>
-        <input type="range" min="0" max="100" value="50" step="1" aria-label="Slide to compare parked and pulled">
+    <figure class="story-fig">
+      <div class="story-frame">
+        <img src="assets/img/pull-story-v2.jpg" width="1536" height="1024" alt="The AARVE pull tab parked short on the left and pulled out with the cards raised on the right" loading="lazy" decoding="async">
+        <span class="story-label left">Parked</span><span class="story-label right">Pulled</span>
       </div>
-      <figcaption>Product rendering</figcaption>
+      <figcaption>The pull-lift, before and after</figcaption>
     </figure>
   </div>
 </section>
@@ -149,22 +145,18 @@
     <div class="build-copy">
       <p class="kicker light"><span class="rule"></span>02 &middot; The build</p>
       <h2 class="h2">Four layers.<br><em>All leather.</em></h2>
-      <ol class="layers" id="layerList">
-        <li data-l="0" class="on"><b>01</b><div><h3>Full-grain leather outer</h3><p>Obsidian black. The face you see and touch. It softens and darkens with use.</p></div></li>
-        <li data-l="1"><b>02</b><div><h3>Full-grain leather lining</h3><p>Oxblood red. It shows at the pocket edge and on the tab.</p></div></li>
-        <li data-l="2"><b>03</b><div><h3>Concealed magnet ring</h3><p>Sealed inside the leather, MagSafe compatible. No visible plastic or metal.</p></div></li>
-        <li data-l="3"><b>04</b><div><h3>Full-grain leather inner</h3><p>Oxblood again, so the inside of the pocket feels as good as the outside.</p></div></li>
+      <ol class="layers">
+        <li><b>01</b><div><h3>Full-grain leather outer</h3><p>Obsidian black. The face you see and touch. It softens and darkens with use.</p></div></li>
+        <li><b>02</b><div><h3>Full-grain leather lining</h3><p>Oxblood red. It shows at the pocket edge and on the tab.</p></div></li>
+        <li><b>03</b><div><h3>Concealed magnet ring</h3><p>Sealed inside the leather, MagSafe compatible. No visible plastic or metal.</p></div></li>
+        <li><b>04</b><div><h3>Full-grain leather inner</h3><p>Oxblood again, so the inside of the pocket feels as good as the outside.</p></div></li>
       </ol>
     </div>
     <figure class="layers-fig">
-      <div class="layers-img" id="layersImg" data-on="0">
-        <img src="assets/img/layers.jpg" width="936" height="316" alt="The four layers of the wallet laid out in order: black outer, red lining, magnet layer, red inner" loading="lazy" decoding="async">
-        <button type="button" class="mk" style="--x:15%" data-l="0" aria-label="Layer 1"><b>1</b></button>
-        <button type="button" class="mk" style="--x:37%" data-l="1" aria-label="Layer 2"><b>2</b></button>
-        <button type="button" class="mk" style="--x:59%" data-l="2" aria-label="Layer 3"><b>3</b></button>
-        <button type="button" class="mk" style="--x:81%" data-l="3" aria-label="Layer 4"><b>4</b></button>
+      <div class="layers-img">
+        <img src="assets/img/construction-v2.jpg" width="1536" height="1024" alt="Four aligned leather layers: black outer, oxblood lining, concealed magnet layer and oxblood inner" loading="lazy" decoding="async">
       </div>
-      <figcaption>Product rendering</figcaption>
+      <figcaption>Four layers. Nothing concealed except the magnet.</figcaption>
     </figure>
   </div>
 </section>
@@ -177,7 +169,7 @@
       <h2 class="h2">Small things<br><em>you will notice.</em></h2>
     </div>
     <div class="det-feature">
-      <figure class="plate-fig wide"><img src="assets/img/macro.jpg" width="848" height="372" alt="Close up of the sculpted quick-card pocket with its diagonal edge and red stitched lining" loading="lazy" decoding="async"><figcaption>Product rendering</figcaption></figure>
+      <figure class="plate-fig wide"><img src="assets/img/macro.jpg" width="848" height="372" alt="Close up of the sculpted quick-card pocket with its diagonal edge and red stitched lining" loading="lazy" decoding="async"><figcaption>Edge detail</figcaption></figure>
       <div class="det-text">
         <h3>Sculpted quick-card pocket</h3>
         <p>A diagonal edge, cut to echo the AA monogram. One card always sits in reach, the other three wait behind it.</p>
@@ -210,6 +202,7 @@
       <div><dt>Made</dt><dd>By hand in Lahore, Pakistan</dd></div>
     </dl>
     <p class="fine">A MagSafe ring only grips through a case that is MagSafe compatible, or thin enough for the magnet to reach. Slide it off before wireless charging.</p>
+    <p class="fine visual-note">Campaign imagery is a product visualisation. Natural leather grain and tone vary from piece to piece.</p>
   </div>
 </section>
 
@@ -385,6 +378,6 @@
 <div class="toasts" id="toasts" aria-live="polite" aria-atomic="false"></div>
 
 <script src="config.js"></script>
-<script src="app.js?v=2" defer></script>
+<script src="app.js?v=3" defer></script>
 </body>
 </html>

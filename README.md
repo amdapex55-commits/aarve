@@ -17,7 +17,7 @@ node test/api.test.mjs && node test/e2e.mjs
 Local admin password is in `worker/.dev.vars` (not committed).
 
 ## Change the pictures
-Swap files in `assets/img/` keeping the same names (`hero.jpg`, `hero.webp`, `rest.jpg`, `pull.jpg`, `layers.jpg`, `macro.jpg`, `front.jpg`, `rear.jpg`, `side.jpg`, `thumb.jpg`). The page picks them up with no code change. The current pictures are product renderings and are captioned as such.
+The storefront uses `hero.jpg` / `hero.webp`, `pull-story-v2.jpg`, `construction-v2.jpg`, `macro.jpg`, `front.jpg`, `rear.jpg`, `side.jpg` and `thumb.jpg`. Keep their current aspect ratios when replacing them. Campaign imagery is disclosed once in the specifications section rather than repeatedly labelled over every photograph.
 
 ## Deploy the API
 `cd worker && npx wrangler deploy`. Set `ADMIN_PASSWORD` and `SESSION_SECRET` with `npx wrangler secret put`. Allowed website addresses are in `wrangler.toml` (`ALLOWED_ORIGINS`).
